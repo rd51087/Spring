@@ -1,0 +1,6 @@
+com\dariaromanowska\lab13\domain\Person.class
+com\dariaromanowska\lab13\repository\PersonRepository.class
+com\dariaromanowska\lab13\domain\Address.class
+com\dariaromanowska\lab13\controller\PeopleController.class
+com\dariaromanowska\lab13\Lab13Application.class
+com\dariaromanowska\lab13\bootstrap\DataLoader.class

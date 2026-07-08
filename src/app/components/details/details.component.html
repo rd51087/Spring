@@ -1,0 +1,42 @@
+<section class="panel">
+  <header class="panel-header">
+    <div>
+      <h1>Szczegóły osoby</h1>
+      <p>Podgląd danych zapisanych w LocalStorage.</p>
+    </div>
+    <a class="ghost" routerLink="/">Wróć</a>
+  </header>
+
+  @if (person(); as data) {
+    <div class="details-grid" aria-label="Szczegóły osoby">
+      <div class="detail-card">
+        <span class="detail-label">Imię</span>
+        <span class="detail-value">{{ data.firstName ?? '-' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Nazwisko</span>
+        <span class="detail-value">{{ data.familyName ?? '-' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Wiek</span>
+        <span class="detail-value">{{ data.age ?? '-' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Miasto</span>
+        <span class="detail-value">{{ data.address.city ?? '-' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Ulica</span>
+        <span class="detail-value">{{ data.address.street ?? '-' }}</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-label">Kod pocztowy</span>
+        <span class="detail-value">{{ data.address.postCode ?? '-' }}</span>
+      </div>
+    </div>
+  } @else {
+    <div class="empty">
+      Nie znaleziono osoby. Wróć do listy i wybierz poprawny wpis.
+    </div>
+  }
+</section>

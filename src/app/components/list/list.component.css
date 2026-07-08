@@ -1,5 +1,4 @@
 .person-list {
-  list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
@@ -7,20 +6,10 @@
 }
 
 .person-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
   border-radius: 18px;
-  border: 1px solid var(--line-200);
-  background: var(--surface-100);
+  border: 1px solid color-mix(in srgb, var(--mat-sys-outline) 35%, transparent);
+  background: color-mix(in srgb, var(--mat-sys-surface) 96%, white);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-}
-
-.person-main {
-  display: grid;
-  gap: 0.35rem;
 }
 
 .person-name {
@@ -29,7 +18,7 @@
 }
 
 .person-meta {
-  color: var(--ink-500);
+  color: var(--mat-sys-on-surface-variant);
   font-size: 0.9rem;
 }
 
@@ -40,8 +29,9 @@
 }
 
 @media (max-width: 720px) {
-  .person-card {
-    flex-direction: column;
-    align-items: flex-start;
+  .person-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
   }
 }

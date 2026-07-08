@@ -1,42 +1,44 @@
-<section class="panel">
-  <header class="panel-header">
+<mat-card class="panel">
+  <mat-card-header class="panel-header">
     <div>
-      <h1>Szczegóły osoby</h1>
-      <p>Podgląd danych zapisanych w LocalStorage.</p>
+      <mat-card-title>Szczegóły osoby</mat-card-title>
+      <mat-card-subtitle>Podgląd danych zapisanych w LocalStorage.</mat-card-subtitle>
     </div>
-    <a class="ghost" routerLink="/">Wróć</a>
-  </header>
+    <a mat-stroked-button routerLink="/">Wróć</a>
+  </mat-card-header>
 
-  @if (person(); as data) {
-    <div class="details-grid" aria-label="Szczegóły osoby">
-      <div class="detail-card">
-        <span class="detail-label">Imię</span>
-        <span class="detail-value">{{ data.firstName ?? '-' }}</span>
+  <mat-card-content>
+    @if (person(); as data) {
+      <div class="details-grid" aria-label="Szczegóły osoby">
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Imię</mat-card-subtitle>
+          <mat-card-title>{{ data.firstName ?? '-' }}</mat-card-title>
+        </mat-card>
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Nazwisko</mat-card-subtitle>
+          <mat-card-title>{{ data.familyName ?? '-' }}</mat-card-title>
+        </mat-card>
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Wiek</mat-card-subtitle>
+          <mat-card-title>{{ data.age ?? '-' }}</mat-card-title>
+        </mat-card>
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Miasto</mat-card-subtitle>
+          <mat-card-title>{{ data.address.city ?? '-' }}</mat-card-title>
+        </mat-card>
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Ulica</mat-card-subtitle>
+          <mat-card-title>{{ data.address.street ?? '-' }}</mat-card-title>
+        </mat-card>
+        <mat-card class="detail-card">
+          <mat-card-subtitle>Kod pocztowy</mat-card-subtitle>
+          <mat-card-title>{{ data.address.postCode ?? '-' }}</mat-card-title>
+        </mat-card>
       </div>
-      <div class="detail-card">
-        <span class="detail-label">Nazwisko</span>
-        <span class="detail-value">{{ data.familyName ?? '-' }}</span>
+    } @else {
+      <div class="empty">
+        Nie znaleziono osoby. Wróć do listy i wybierz poprawny wpis.
       </div>
-      <div class="detail-card">
-        <span class="detail-label">Wiek</span>
-        <span class="detail-value">{{ data.age ?? '-' }}</span>
-      </div>
-      <div class="detail-card">
-        <span class="detail-label">Miasto</span>
-        <span class="detail-value">{{ data.address.city ?? '-' }}</span>
-      </div>
-      <div class="detail-card">
-        <span class="detail-label">Ulica</span>
-        <span class="detail-value">{{ data.address.street ?? '-' }}</span>
-      </div>
-      <div class="detail-card">
-        <span class="detail-label">Kod pocztowy</span>
-        <span class="detail-value">{{ data.address.postCode ?? '-' }}</span>
-      </div>
-    </div>
-  } @else {
-    <div class="empty">
-      Nie znaleziono osoby. Wróć do listy i wybierz poprawny wpis.
-    </div>
-  }
-</section>
+    }
+  </mat-card-content>
+</mat-card>

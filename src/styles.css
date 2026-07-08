@@ -27,7 +27,7 @@
 body {
 	margin: 0;
 	font-family: var(--font-body);
-	color: var(--ink-900);
+	color: var(--mat-sys-on-surface);
 	background: var(--gradient-bg);
 	min-height: 100vh;
 }
@@ -44,11 +44,11 @@ textarea {
 }
 
 .panel {
-	background: var(--surface-100);
 	border-radius: 24px;
 	padding: clamp(1.5rem, 3vw, 2.5rem);
-	border: 1px solid var(--line-200);
+	border: 1px solid color-mix(in srgb, var(--mat-sys-outline) 40%, transparent);
 	box-shadow: 0 24px 50px rgba(12, 10, 27, 0.08);
+	background: color-mix(in srgb, var(--mat-sys-surface) 94%, white);
 }
 
 .panel-header {
@@ -66,61 +66,45 @@ textarea {
 
 .panel-header p {
 	margin: 0;
-	color: var(--ink-500);
+	color: var(--mat-sys-on-surface-variant);
 }
 
-.primary,
-.ghost,
-.link {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0.55rem 1.2rem;
-	border-radius: 999px;
-	border: 1px solid transparent;
-	text-decoration: none;
-	font-weight: 600;
-	transition: all 0.2s ease;
+.mat-mdc-card.panel {
+	padding: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.primary {
-	background: var(--ink-900);
-	color: var(--ink-100);
+.mat-mdc-card.panel .mat-mdc-card-header {
+	padding: 0;
+	margin-bottom: 1.5rem;
 }
 
-.primary:hover,
-.primary:focus-visible {
-	transform: translateY(-1px);
-	box-shadow: 0 10px 20px rgba(21, 19, 31, 0.25);
+.mat-mdc-card.panel .mat-mdc-card-content {
+	padding: 0;
 }
 
-.ghost {
-	background: transparent;
-	border-color: var(--line-200);
-	color: var(--ink-700);
+.mat-mdc-card.panel .mat-mdc-card-actions {
+	padding: 0;
 }
 
-.ghost:hover,
-.ghost:focus-visible {
-	background: var(--surface-200);
+.mat-mdc-form-field {
+	width: 100%;
 }
 
-.link {
-	padding: 0.4rem 0.9rem;
-	background: var(--surface-200);
-	color: var(--ink-700);
+.mat-mdc-form-field .mdc-text-field--outlined {
+	border-radius: 14px;
+	background: color-mix(in srgb, var(--mat-sys-surface) 92%, white);
 }
 
-.link:hover,
-.link:focus-visible {
-	background: var(--surface-300);
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+	border-color: color-mix(in srgb, var(--mat-sys-outline) 55%, transparent);
 }
 
 .empty {
 	padding: 2rem;
 	border-radius: 20px;
-	background: var(--surface-200);
-	color: var(--ink-500);
+	background: color-mix(in srgb, var(--mat-sys-surface-variant) 35%, white);
+	color: var(--mat-sys-on-surface-variant);
 	text-align: center;
 }
 

@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { Person } from '../../models/person';
 import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-list',
-  imports: [RouterLink],
+  imports: [RouterLink, MatButtonModule, MatCardModule, MatListModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

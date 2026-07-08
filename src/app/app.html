@@ -1,7 +1,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <div class="app-shell">
-  <header class="site-header">
+  <mat-toolbar class="site-header" color="primary">
     <div class="brand">
       <div class="brand-mark" aria-hidden="true">LB</div>
       <div class="brand-text">
@@ -9,13 +9,14 @@
         <span class="brand-subtitle">Rejestr osób</span>
       </div>
     </div>
+    <span class="spacer"></span>
     <nav class="site-nav" aria-label="Primary">
-      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+      <a mat-button routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
         Lista osób
       </a>
-      <a routerLink="/add" routerLinkActive="is-active">Dodaj osobę</a>
+      <a mat-stroked-button routerLink="/add" routerLinkActive="is-active">Dodaj osobę</a>
     </nav>
-  </header>
+  </mat-toolbar>
 
   <main class="site-main">
     <router-outlet />

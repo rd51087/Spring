@@ -9,31 +9,8 @@
   gap: 1rem;
 }
 
-.field {
-  display: grid;
-  gap: 0.4rem;
-  font-weight: 500;
-  color: var(--ink-700);
-}
-
-.field span {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-
-.field input {
-  padding: 0.65rem 0.8rem;
-  border-radius: 12px;
-  border: 1px solid var(--line-200);
-  background: var(--surface-100);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.field input:focus {
-  outline: none;
-  border-color: var(--brand-400);
-  box-shadow: 0 0 0 3px rgba(90, 79, 245, 0.2);
+mat-form-field {
+  min-width: 0;
 }
 
 .form-actions {

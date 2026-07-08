@@ -1,31 +1,31 @@
-<section class="panel">
-  <header class="panel-header">
+<mat-card class="panel">
+  <mat-card-header class="panel-header">
     <div>
-      <h1>Lista osób</h1>
-      <p>Zarządzaj zapisanymi wpisami i przechodź do szczegółów.</p>
+      <mat-card-title>Lista osób</mat-card-title>
+      <mat-card-subtitle>Zarządzaj zapisanymi wpisami i przechodź do szczegółów.</mat-card-subtitle>
     </div>
-    <a class="primary" routerLink="/add">Dodaj osobę</a>
-  </header>
+    <a mat-flat-button color="primary" routerLink="/add">Dodaj osobę</a>
+  </mat-card-header>
 
-  @if (people().length === 0) {
-    <div class="empty">
-      Brak zapisanych osób. Kliknij "Dodaj osobę", aby utworzyć pierwszy wpis.
-    </div>
-  } @else {
-    <ul class="person-list" aria-label="Lista osób">
-      @for (person of people(); track $index; let index = $index) {
-        <li class="person-card">
-          <div class="person-main">
-            <span class="person-name">{{ person.firstName }} {{ person.familyName }}</span>
-            <span class="person-meta">Wiek: {{ person.age ?? '-' }}</span>
-            <span class="person-meta">Miasto: {{ person.address.city ?? '-' }}</span>
-          </div>
-          <div class="person-actions">
-            <a class="link" [routerLink]="['/details', index]">Szczegóły</a>
-            <button class="ghost" type="button" (click)="delete(index)">Usuń</button>
-          </div>
-        </li>
-      }
-    </ul>
-  }
-</section>
+  <mat-card-content>
+    @if (people().length === 0) {
+      <div class="empty">
+        Brak zapisanych osób. Kliknij "Dodaj osobę", aby utworzyć pierwszy wpis.
+      </div>
+    } @else {
+      <mat-list class="person-list" aria-label="Lista osób">
+        @for (person of people(); track $index; let index = $index) {
+          <mat-list-item class="person-card">
+            <span class="person-name" matListItemTitle>{{ person.firstName }} {{ person.familyName }}</span>
+            <span class="person-meta" matListItemLine>Wiek: {{ person.age ?? '-' }}</span>
+            <span class="person-meta" matListItemLine>Miasto: {{ person.address.city ?? '-' }}</span>
+            <div class="person-actions" matListItemMeta>
+              <a mat-stroked-button [routerLink]="['/details', index]">Szczegóły</a>
+              <button mat-button color="warn" type="button" (click)="delete(index)">Usuń</button>
+            </div>
+          </mat-list-item>
+        }
+      </mat-list>
+    }
+  </mat-card-content>
+</mat-card>

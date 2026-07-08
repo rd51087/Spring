@@ -2,13 +2,15 @@ import { ChangeDetectionStrategy, Component, DestroyRef, OnInit, inject, signal 
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { Person } from '../../models/person';
 import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-details',
-  imports: [RouterLink],
+  imports: [RouterLink, MatButtonModule, MatCardModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

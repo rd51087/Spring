@@ -12,5 +12,9 @@
 
 .not-found p {
   margin: 0;
-  color: var(--ink-500);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.not-found mat-card-actions {
+  padding: 0;
 }

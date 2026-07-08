@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="m-4">
+    <h1>People</h1>
+
+    <div th:if="${error}" class="alert alert-danger">
+        <p th:text="${error}"></p>
+    </div>
+    <div th:if="${success}" class="alert alert-success">
+        <p th:text="${success}"></p>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Family name</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person, iter : ${people}">
+            <td th:text="${iter.index}"></td>
+            <td th:text="${person.firstName}"></td>
+            <td th:text="${person.familyName}"></td>
+            <td>
+                <a th:href="@{/people/{id}(id=${iter.index})}">show</a>
+                <a th:href="@{/people/{id}/edit(id=${iter.index})}">edit</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(people)}">
+            <td colspan="4">no records found</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/people/new">Create new</a>
+</div>
+</body>
+</html>

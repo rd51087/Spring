@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit person</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="m-4">
+    <h1>Edit Person</h1>
+
+    <form th:action="@{/people/{id}(id=${personId})}" th:object="${person}" method="post">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First name</label>
+            <input id="firstName" type="text" th:field="*{firstName}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="familyName" class="form-label">Family name</label>
+            <input id="familyName" type="text" th:field="*{familyName}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn">Update</button>
+    </form>
+
+    <a href="/people">back to list</a>
+
+    <form th:action="@{/people/{id}/delete(id=${personId})}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <button class="btn">Delete</button>
+    </form>
+</div>
+</body>
+</html>

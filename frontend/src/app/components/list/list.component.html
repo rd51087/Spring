@@ -1,0 +1,31 @@
+<section class="panel">
+  <header class="panel-header">
+    <div>
+      <h1>Lista osób</h1>
+      <p>Zarządzaj zapisanymi wpisami i przechodź do szczegółów.</p>
+    </div>
+    <a class="primary" routerLink="/add">Dodaj osobę</a>
+  </header>
+
+  @if (people().length === 0) {
+    <div class="empty">
+      Brak zapisanych osób. Kliknij "Dodaj osobę", aby utworzyć pierwszy wpis.
+    </div>
+  } @else {
+    <ul class="person-list" aria-label="Lista osób">
+      @for (person of people(); track person.id ?? $index) {
+        <li class="person-card">
+          <div class="person-main">
+            <span class="person-name">{{ person.firstName }} {{ person.familyName }}</span>
+            <span class="person-meta">Wiek: {{ person.age ?? '-' }}</span>
+            <span class="person-meta">Miasto: {{ person.address.city ?? '-' }}</span>
+          </div>
+          <div class="person-actions">
+            <a class="link" [routerLink]="['/details', person.id]">Szczegóły</a>
+            <button class="ghost" type="button" (click)="delete(person.id)">Usuń</button>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+</section>

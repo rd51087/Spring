@@ -1,0 +1,27 @@
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.detail-card {
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid var(--line-200);
+  background: var(--surface-200);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-500);
+}
+
+.detail-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink-900);
+}

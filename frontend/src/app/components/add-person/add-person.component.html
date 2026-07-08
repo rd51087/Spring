@@ -1,0 +1,44 @@
+<section class="panel">
+  <header class="panel-header">
+    <div>
+      <h1>Dodaj osobę</h1>
+      <p>Wypełnij formularz i zapisz wpis w bazie danych.</p>
+    </div>
+    <a class="ghost" routerLink="/">Wróć</a>
+  </header>
+
+  <form class="form" #personForm="ngForm" (ngSubmit)="save()">
+    <div class="form-grid">
+      <label class="field">
+        <span>Imię</span>
+        <input type="text" name="firstName" [(ngModel)]="person.firstName" required />
+      </label>
+      <label class="field">
+        <span>Nazwisko</span>
+        <input type="text" name="familyName" [(ngModel)]="person.familyName" required />
+      </label>
+      <label class="field">
+        <span>Wiek</span>
+        <input type="number" name="age" [(ngModel)]="person.age" min="0" />
+      </label>
+      <label class="field">
+        <span>Miasto</span>
+        <input type="text" name="city" [(ngModel)]="person.address.city" />
+      </label>
+      <label class="field">
+        <span>Ulica</span>
+        <input type="text" name="street" [(ngModel)]="person.address.street" />
+      </label>
+      <label class="field">
+        <span>Kod pocztowy</span>
+        <input type="text" name="postCode" [(ngModel)]="person.address.postCode" />
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button class="primary" type="submit" [disabled]="personForm.invalid">
+        Zapisz dane
+      </button>
+    </div>
+  </form>
+</section>
